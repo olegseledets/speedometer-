@@ -6,15 +6,11 @@ const int MAX_SPEED = 150;
 const float COMPARED_DELTA = 0.01f;
 
 float checkSpeed (float currSpeed, float delta) {
-	if (currSpeed + delta >= MAX_SPEED - COMPARED_DELTA) {
-		std::cout << "Предел скорости!" << std::endl;
-		return MAX_SPEED;
-	}
-	else 
-		return (currSpeed + delta > MIN_SPEED + COMPARED_DELTA) ? (currSpeed + delta) : MIN_SPEED;
+	return (currSpeed + delta >= MAX_SPEED - COMPARED_DELTA) ? MAX_SPEED : (currSpeed + delta > MIN_SPEED + COMPARED_DELTA) ? (currSpeed + delta) : MIN_SPEED;
 }
 
 int main() {
+  std::cout << "\t\tВводите числовое значение для увеличение скорости.\n\t\tДля уменьшения скорости число должно быть отрицательным.\n";
   std::stringstream currentSpeed;
   float speed = MIN_SPEED;
 	float delta = 0.0f;
